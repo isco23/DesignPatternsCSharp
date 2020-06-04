@@ -12,7 +12,7 @@ namespace AdapterDemo.Adapter
     {
         public override string GetAllEmployees()
         {
-            string returnXml = base.GetAllEmployees();            
+            string returnXml = base.GetAllEmployees();
             XmlDocument doc = new XmlDocument();
             doc.LoadXml(returnXml);
             return JsonConvert.SerializeObject(doc, Newtonsoft.Json.Formatting.Indented);

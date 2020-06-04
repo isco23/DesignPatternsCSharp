@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -69,59 +68,4 @@ namespace ProtoTypeDemo
             Console.ReadLine();
         }
     }
-    public partial class Employee : CloneablePrototype<Employee>
-    {
-        public Guid Id { get; set; }
-        public string Name { get; set; }
-        public int DepartmentID { get; set; }
-
-        public Address AddressDetails { get; set; }
-
-        public string StringCon()
-        {
-            return string.Format("Name: {0} " + "DepartmentID : {1} ", this.Name, this.DepartmentID);
-        }
-    }
-
-    //public partial class Employee : ICloneable
-    //{
-    //    public object Clone()
-    //    {
-    //        return this.MemberwiseClone();
-    //    }
-    //}
-
-    public class Address
-    {
-        public Address()
-        {
-
-        }
-        public int DoorNumber { get; set; }
-        public int StreetNumber { get; set; }
-        public int ZipCode { get; set; }
-        public string Country { get; set; }
-
-        public string StringCon()
-        {
-            return string.Format("AddressDetails: Door : {0} "+" StreetNumber : {1} "+" ZipCode : {2} "+" Country : {3}", this.DoorNumber, this.StreetNumber, this.ZipCode, this.Country);
-        }
-    }
-
-    public abstract class CloneablePrototype<T>
-    {
-        // Shallow Copy
-        public T Clone()
-        {
-            return (T)this.MemberwiseClone();
-        }
-        // Deep Copy
-
-        public T DeepCopy()
-        {
-            string result = JsonConvert.SerializeObject(this);
-            return JsonConvert.DeserializeObject<T>(result);
-        }
-        
-    }    
 }

@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adaptee\Employee.cs" />
+    <Compile Include="Adaptee\EmployeeManager.cs" />
     <Compile Include="Adapter\EmployeeAdapter.cs" />
     <Compile Include="Target\IEmployee.cs" />
     <Compile Include="Program.cs" />
